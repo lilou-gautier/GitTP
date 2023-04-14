@@ -34,7 +34,7 @@ vector<double> PCG(vector<vector<double>>& A, vector<double>& b, vector<double>&
          double residualError = sqrt(dotProduct(r, r));
         if (residualError < tol) 
         {
-    //        cout << "Preconditioned Conjugate Gradient converged in " << iter+1 << " iterations." << " with a residual "<<residualError <<endl;
+            cout << "Preconditioned Conjugate Gradient converged in " << iter+1 << " iterations." << " with a residual "<<residualError <<endl;
             break;
         }
         z = precond(M,r); // Preconditioning step (z = M^-1 * r)
@@ -46,7 +46,7 @@ vector<double> PCG(vector<vector<double>>& A, vector<double>& b, vector<double>&
         }
         rz_old = rz_new;
         if(iter == maxIter - 1) {
-    //        cout << "Conjugate Gradient did not converge within " << maxIter << " iterations." << " with a residual "<<sqrt(dotProduct(r, r)) << endl;
+            cout << "Conjugate Gradient did not converge within " << maxIter << " iterations." << " with a residual "<<sqrt(dotProduct(r, r)) << endl;
         }
     }
     return x;
